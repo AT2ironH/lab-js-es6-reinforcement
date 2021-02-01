@@ -5,11 +5,16 @@
 const getFirstNames = arr => {
   const userFirstNames = [];
   for (let user of arr) {
-    // Your code goes here ...
+   
+    userFirstNames.push(user.firstName)
   }
+  console.log(userFirstNames)
 };
 
 getFirstNames(usersArray);
+
+
+
 // expected output:
 // [ 'Kirby', 'Tracie', 'Kendra', 'Kinney', 'Howard', 'Rachelle', 'Lizzie' ]
 
@@ -19,9 +24,15 @@ getFirstNames(usersArray);
 
 const getFullNames = arr => {
   // Your code goes here ...
+  const fullNames = [];
+   for (let user of arr) {
+    fullNames.push(user.firstName + ' ' + user.lastName)
+  }
+  console.log(fullNames)
 };
 
 getFullNames(usersArray);
+
 // expected output:
 // [ 'Kirby Doyle', 'Tracie May', 'Kendra Hines', 'Kinney Howard',
 //   'Howard Gilmore', 'Rachelle Schneider', 'Lizzie Alford' ]
@@ -32,9 +43,21 @@ getFullNames(usersArray);
 
 const getUsersCreditDetails = arr => {
   // Your code goes here ...
+  let usersCreditDetails = []
+  let userDetails
+       for (let {firstName: a, lastName: b, balance: c} of arr){
+     userDetails = {
+     firstName: a, 
+     lastName: b, 
+     balance: c
+     }
+    usersCreditDetails.push(userDetails)
+ 
+  console.log(usersCreditDetails)
 };
-
+}
 getUsersCreditDetails(usersArray);
+
 // expected output:
 // [ { firstName: 'Kirby', lastName: 'Doyle', balance: '$3,570.06' },
 // { firstName: 'Tracie', lastName: 'May', balance: '$1,547.73' },
@@ -49,10 +72,22 @@ getUsersCreditDetails(usersArray);
 // ***************************************************************************
 
 const genderView = users => {
-  // Your code goes here ...
-};
+  let femaleUsers = [];
+  let maleUsers = [];
+  const filtered = users.filter(user => user.gender === `female`)
+  for (let user of filtered) {
+    femaleUsers.push(`${user.firstName} ${user.lastName}`)
+  } 
+  console.log(femaleUsers)
 
-genderView(usersArray);
+
+const filteredMales = users.filter(user => user.gender === `male`)
+  for (let user of filteredMales) {
+    maleUsers.push(`${user.firstName} ${user.lastName}`)
+  } 
+  console.log(maleUsers)
+}
+genderView(usersArray)
 // expected output:
 // {
 //    femaleUsers: [ 'Tracie May', 'Kendra Hines', 'Rachelle Schneider', 'Lizzie Alford' ],
@@ -67,6 +102,7 @@ const data = genderView(usersArray);
 
 const genderCount = data => {
   // Your code goes here ...
+  
 };
 
 genderCount(data);
